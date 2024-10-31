@@ -1,0 +1,52 @@
+<?php
+    namespace PHP\Modelo;
+    require_once('Pessoa.php');
+    require_once('Endereco.php');
+    require_once('Recepcionista.php');
+
+    use PHP\Modelo\Pessoa;
+    use PHP\Modelo\Endereco;
+    use PHP\Modelo\Recepcionista;
+
+
+    class Recepcionista extends Pessoa{
+
+        protected string $cargo;
+        protected float $salario;
+
+        public function __construct(string $cpf,string $nome, string $telefone, string $cargo, float $salario,Endereco $endereco
+
+        )
+
+        {
+            parent:: __construct($cpf,$nome,$telefone,$endereco);
+            $this->cargo = $cargo;
+            $this->salario = $salario;
+
+
+        }//fim do construtor
+
+        public function __get(string $nome):mixed
+        {
+            return $this->nome;
+        }//fim do metodo
+
+        public function __set(string $nomeVariavel, string $dado):void
+
+        {
+            $this->nomeVariavel = $dado;
+        }//fim do set
+
+        public function imprimir():string
+
+        {
+            return parent::imprimir().
+                "<br>Cargo:".$this->cargo.
+                "<br>Salario:".$this->salario;
+        }
+
+
+    }//fim da classe
+
+
+?>
